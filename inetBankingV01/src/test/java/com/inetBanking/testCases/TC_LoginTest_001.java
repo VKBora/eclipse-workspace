@@ -8,8 +8,7 @@ public class TC_LoginTest_001 extends BaseClass {
 	@Test
 	public void loginTest( ) throws InterruptedException {
 		
-		driver.get(baseURL);
-		
+		Thread.sleep(3);
 		logger.info("URL is opened");
 		
 		LoginPage lp = new LoginPage(driver);
@@ -21,15 +20,17 @@ public class TC_LoginTest_001 extends BaseClass {
 
 		lp.clickLogin();
 		
-		if(driver.getTitle().trim().equals("GTPL Bank Manager HomePage"))
+		if(driver.getTitle().equals("GTPL Bank Manager HomePage"))
 		{
-			Assert.assertTrue(true);
 			logger.info("Login Pass");
+			Assert.assertTrue(true);
+			
 		}
 		else
 		{
-			Assert.assertTrue(false);
 			logger.info("Login Fail");
+			Assert.assertTrue(false);
+			
 		}
 		
 	}
